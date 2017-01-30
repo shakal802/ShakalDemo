@@ -43,7 +43,7 @@ public class ListViewAdapter extends BaseAdapter {
 //        TextView view = new TextView(mContext);
 //        view.setText(String.valueOf(position));
 //        return view;
-
+//
         ViewHolder holder;
         if(convertView==null){
             convertView = mInflater.inflate(R.layout.list_item, parent, false);
