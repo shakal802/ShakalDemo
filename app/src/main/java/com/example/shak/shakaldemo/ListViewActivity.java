@@ -1,5 +1,6 @@
 package com.example.shak.shakaldemo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -29,11 +30,11 @@ private ListView listView;
     }
 
     private void creatFakeResult(){
-        listResult.add("A");
-        listResult.add("B");
-        listResult.add("C");
-        listResult.add("D");
-        listResult.add("E");
+        listResult.add("AAAAAAAAAAAAA");
+        listResult.add("BBBBBB");
+        listResult.add("CCCCCCCCCC");
+        listResult.add("DDDD");
+        listResult.add("EEEEEEEEEEEEEEEE");
         listResult.add("F");
         listResult.add("G");
         listResult.add("H");
@@ -74,5 +75,13 @@ private ListView listView;
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Toast.makeText(this,"listView was clicked at position:"+position,Toast.LENGTH_LONG).show();
         Log.d("testListViewActivity",String.valueOf(position));
+    }
+    @Override
+    public void onBackPressed(){
+    Intent intent = new Intent();
+        intent.putExtra("message", "ListView");
+        setResult(RESULT_OK,intent);
+        super.onBackPressed();
+
     }
 }
