@@ -1,3 +1,6 @@
+package com.example.shak.shakaldemo;
+
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -11,7 +14,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.shak.shakaldemo.R;
 import com.example.shak.shakaldemo.adapter.ListViewAdapter;
 import com.example.shak.shakaldemo.adapter.ViewPagerAdapter;
 import com.example.shak.shakaldemo.fragment.ContentFragment;
