@@ -14,11 +14,16 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.shak.shakaldemo.Fragments.CenterCropFragment;
+import com.example.shak.shakaldemo.Fragments.CenterFragment;
+import com.example.shak.shakaldemo.Fragments.CenterInsideFragment;
+import com.example.shak.shakaldemo.Fragments.FitCenterFragment;
+import com.example.shak.shakaldemo.Fragments.FitEndFragment;
+import com.example.shak.shakaldemo.Fragments.FitStartFragment;
+import com.example.shak.shakaldemo.Fragments.FitXYFragment;
+import com.example.shak.shakaldemo.Fragments.MatrixFragment;
 import com.example.shak.shakaldemo.adapter.ListViewAdapter;
 import com.example.shak.shakaldemo.adapter.ViewPagerAdapter;
-import com.example.shak.shakaldemo.fragment.ContentFragment;
-import com.example.shak.shakaldemo.fragment.HistoryFragment;
-import com.example.shak.shakaldemo.fragment.LoginFragment;
 import com.example.shak.shakaldemo.util.UtilLog;
 
 import java.util.ArrayList;
@@ -69,15 +74,24 @@ public class ListViewActivity extends AppCompatActivity implements AdapterView.O
 
 
 
-        fragmentList.add(new LoginFragment());
-        fragmentList.add(new ContentFragment());
-        fragmentList.add(new HistoryFragment());
+       // fragmentList.add(new LoginFragment());
+       // fragmentList.add(new ContentFragment());
+       // fragmentList.add(new HistoryFragment());
+        fragmentList.add(new CenterCropFragment());
+        fragmentList.add(new CenterFragment());
+        fragmentList.add(new CenterInsideFragment());
+        fragmentList.add(new FitCenterFragment());
+        fragmentList.add(new FitEndFragment());
+        fragmentList.add(new FitStartFragment());
+        fragmentList.add(new FitXYFragment());
+        fragmentList.add(new MatrixFragment());
+
 
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(this.getSupportFragmentManager());
         viewPagerAdapter.setContent(fragmentList);
 
-        TabLayout tabLayout = (TabLayout) pager.findViewById(R.id.tab_layout);
-        tabLayout.setupWithViewPager(viewPager);
+        //TabLayout tabLayout = (TabLayout) pager.findViewById(R.id.tab_layout);
+        //tabLayout.setupWithViewPager(viewPager);
 
         viewPager.setAdapter(viewPagerAdapter);
 

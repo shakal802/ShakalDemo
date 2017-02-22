@@ -6,9 +6,10 @@
     tools:context="com.example.shak.shakaldemo.fragment.HistoryFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="100dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/pic1"/> />
 
 </FrameLayout>
