@@ -1,0 +1,54 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RadioGroup
+        android:id="@+id/rdg"
+        android:layout_width="match_parent"
+        android:layout_height="248dp">
+
+        <RadioButton
+            android:id="@+id/rb1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:gravity="left|center_vertical"
+            android:text="View Pager Activity"
+            />
+
+        <RadioButton
+            android:id="@+id/rb2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:gravity="left|center_vertical"
+            android:text="List View Activity"
+            />
+
+    </RadioGroup>
+
+    <LinearLayout
+        android:id="@+id/tool_bar"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_height="58dp">
+
+    <Button
+        android:id="@+id/dialog_cancel"
+        android:layout_width="188dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="Cancel"/>
+
+        <Button
+            android:id="@+id/dialog_ok"
+            android:layout_width="171dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="200dp"
+            android:gravity="center"
+            android:text="OK"/>
+    </LinearLayout>
+
+</LinearLayout>

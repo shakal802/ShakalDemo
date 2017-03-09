@@ -2,22 +2,55 @@ package com.example.shak.shakaldemo;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.shak.shakaldemo.bean.Book;
+import com.example.shak.shakaldemo.util.UtilLog;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements View.OnTouchListener {
     private ImageButton bt1;
     private ImageButton bt3;
     private ImageButton bt4;
+    private GestureDetector mGestureDetector;
+
+    @BindView(R.id.fl) FrameLayout fl;
 
 
+    @OnClick(R.id.main_timer_bt)
+    public void main_timer_btClick(){
+    toActivity((TimerActivity.class));
+    }
 
+    @OnClick(R.id.main_animation_bt)
+    public void main_animation_btClick(){
+        toActivity((AnimationActivity.class));
+    }
+
+    @OnClick(R.id.main_animator_bt)
+    public void main_animator_btClick(){
+        toActivity((AnimatorActivity.class));
+    }
+
+    @OnClick(R.id.main_quiz_bt)
+    public void main_quiz4_btClick(){
+        toActivity((Quiz4Activity.class));
+    }
+
+//    @OnClick(R.id.main_quiz_bt)
+//    public void main_quiz_btClick(){
+//
+//        Intent intent = new Intent(this,Quiz4Activity.class);
+//        startActivityForResult(intent,5);
+//    }
 
     @OnClick(R.id.bt2)
     public void button2Click(){
@@ -33,6 +66,9 @@ public class MainActivity extends BaseActivity {
         initialView();
         initialListener();
         ButterKnife.bind(this);
+
+        mGestureDetector = new GestureDetector(this,new simpleGestureListener());
+        fl.setOnTouchListener(this);
     }
 
     private void initialView() {
@@ -79,7 +115,7 @@ public class MainActivity extends BaseActivity {
         bt4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View v){
-                Intent intent = new Intent(v.getContext(),toActivity.class);
+                Intent intent = new Intent(v.getContext(),ActivityA.class);
                 startActivityForResult(intent,4);
                 //  Intent intent = new Intent(v.getContext(),ListViewActivity.class);
                 //  startActivity(intent);
@@ -104,8 +140,65 @@ public class MainActivity extends BaseActivity {
                 break;
             case 4:
                 toastShort("To Activity");
+            case 5:
+                toastShort("To Quiz 5");
+                break;
             default:
         }
     }
+
+@Override
+    public boolean onTouch(View v, MotionEvent event){
+    return mGestureDetector.onTouchEvent(event);
+}
+
+   private class simpleGestureListener extends
+           GestureDetector.SimpleOnGestureListener {
+
+       public boolean onDown(MotionEvent e) {
+           UtilLog.logD("MyGesture", "onDown");
+           toastShort("onDown");
+           return true;
+       }
+
+       public void onShowPress(MotionEvent e) {
+           toastShort("onShowPress");
+       }
+
+       public void onLongPress(MotionEvent e){
+           toastShort("onLongPress");
+       }
+
+       public boolean onSingleTapUp(MotionEvent e){
+           toastShort("onSingleTapUp");
+           return true;
+       }
+
+       public boolean onSingleTapConfirmed(MotionEvent e){
+           toastShort("onSingleTapConfirmed");
+           return true;
+       }
+
+       public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY){
+           toastShort("onScroll");
+           return true;
+       }
+
+       public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+           toastShort("onFling");
+           return true;
+       }
+
+       public boolean onDoubleTap(MotionEvent e) {
+           toastShort("onDoubleTap");
+           return true;
+       }
+
+       public boolean onDoubleTapEvent(MotionEvent e){
+           toastShort("onDoubleTapEvent");
+           return true;
+       }
+   }
+
 }
 
