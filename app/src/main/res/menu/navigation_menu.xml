@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/nav_main_activity"
+        android:title="Main Activity" />
+
+    <item android:id="@+id/nav_to_view_pager_activity"
+        android:title="View Pager" />
+
+    <item android:id="@+id/nav_to_list_view_pager"
+        android:title="List View Pager" />
+
+    <item android:id="@+id/nav_to_activity_a"
+        android:title="Activity A" />
+
+    <item android:id="@+id/nav_to_activity_b"
+        android:title="Activity B" />
+
+    <item android:id="@+id/nav_to_activity_c"
+        android:title="Activity C" />
+
+    <item android:id="@+id/nav_to_activity_d"
+        android:title="Activity D" />
+
+</menu>

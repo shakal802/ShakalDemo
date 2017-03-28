@@ -2,7 +2,10 @@ package com.example.shak.shakaldemo;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
+import android.support.v4.widget.DrawerLayout;
 import android.view.GestureDetector;
+import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -20,10 +23,16 @@ public class MainActivity extends BaseActivity implements View.OnTouchListener {
     private ImageButton bt1;
     private ImageButton bt3;
     private ImageButton bt4;
+
+    @Override
+    public View findViewById(@IdRes int id) {
+        return super.findViewById(id);
+    }
+
     private GestureDetector mGestureDetector;
 
     @BindView(R.id.fl) FrameLayout fl;
-
+    @BindView(R.id.drawerLayout) DrawerLayout mDrawerLayout;
 
     @OnClick(R.id.main_timer_bt)
     public void main_timer_btClick(){
@@ -45,6 +54,11 @@ public class MainActivity extends BaseActivity implements View.OnTouchListener {
         toActivity((Quiz4Activity.class));
     }
 
+    @OnClick(R.id.nav_bt)
+    public void drawer_btClick(){
+        mDrawerLayout.openDrawer(Gravity.LEFT);
+        //Can't get this to work
+    }
 //    @OnClick(R.id.main_quiz_bt)
 //    public void main_quiz_btClick(){
 //
@@ -66,6 +80,7 @@ public class MainActivity extends BaseActivity implements View.OnTouchListener {
         initialView();
         initialListener();
         ButterKnife.bind(this);
+
 
         mGestureDetector = new GestureDetector(this,new simpleGestureListener());
         fl.setOnTouchListener(this);
@@ -121,6 +136,7 @@ public class MainActivity extends BaseActivity implements View.OnTouchListener {
                 //  startActivity(intent);
             }
         });
+
 
     }
 
